@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+</head>
+<body>
+
+    <form onsubmit="return validate(this);">
+        <h1>Registration</h1>
+        <table cellspacing="5">
+            <tr>
+                
+                <td>
+                    <fieldset>
+                        <legend><b>General Information:</b></legend>
+                        <table cellpadding="8">
+                            <tr>
+                                <td><b>First <br>Name</b></td>
+                                <td>
+                                    : <input type="text" name="fname">
+                                    <span id="fnameErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Last <br>Name</b></td>
+                                <td>
+                                    : <input type="text" name="lname">
+                                    <span id="lnameErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Gender</b></td>
+                                <td>
+                                    :
+                                    <input type="radio" name="gender" value="Male">Male
+                                    <input type="radio" name="gender" value="Female">Female
+                                    <span id="genderErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Father's<br>Name</b></td>
+                                <td>
+                                    :
+                                    <input type="text" name="father">
+                                    <input type="file" name="photo">
+                                    <br>
+                                    <span id="fatherErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Mother's <br>Name</b></td>
+                                <td>
+                                    : <input type="text" name="mother">
+                                    <span id="motherErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Blood <br>Group</b></td>
+                                <td>
+                                    :
+                                    <select name="blood">
+                                        <option value="">Select</option>
+                                        <option>A+</option>
+                                        <option>A-</option>
+                                        <option>B+</option>
+                                        <option>B-</option>
+                                        <option>AB+</option>
+                                        <option>AB-</option>
+                                        <option>O+</option>
+                                        <option>O-</option>
+                                    </select>
+                                    <span id="bloodErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Religion</b></td>
+                                <td>
+                                    :
+                                    <select name="religion">
+                                        <option value="">Select</option>
+                                        <option>Islam</option>
+                                        <option>Hinduism</option>
+                                        <option>Christianity</option>
+                                        <option>Buddhism</option>
+                                    </select>
+                                    <span id="religionErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+
+        
+                <td>
+                    <fieldset>
+                        <legend><b>Contact Information:</b></legend>
+                        <table cellpadding="8">
+                            <tr>
+                                <td><b>Email</b></td>
+                                <td>
+                                    : <input type="email" name="email">
+                                    <span id="emailErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone/Mobile</b></td>
+                                <td>
+                                    : <input type="text" name="phone">
+                                    <span id="phoneErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Website</b></td>
+                                <td>
+                                    : <input type="text" name="website">
+                                    <span id="websiteErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Address</b></td>
+                                <td>
+                                    <fieldset>
+                                        <legend>Present Address</legend>
+                                        <select name="country">
+                                            <option value="">Country</option>
+                                            <option>Bangladesh</option>
+                                            <option>Bhutan</option>
+                                            <option>Nepal</option>
+                                        </select>
+
+                                        <select name="division">
+                                            <option value="">Division</option>
+                                            <option>Dhaka</option>
+                                            <option>Sylhet</option>
+                                            <option>Rangpur</option>
+                                            <option>Khulna</option>
+                                        </select>
+                                        <br><br>
+                                        <textarea rows="5" cols="22" placeholder="Road/Street/City" name="address"></textarea>
+                                        <br><br>
+                                        <input type="text" placeholder="Post Code" name="postcode">
+                                        <br>
+                                        <span id="addressErr" style="color:red"></span>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+
+                
+                <td>
+                    <fieldset>
+                        <legend><b>Account Information</b></legend>
+                        <table cellpadding="12">
+                            <tr>
+                                <td><b>Username</b></td>
+                                <td>
+                                    : <input type="text" name="username">
+                                    <span id="usernameErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Password</b></td>
+                                <td>
+                                    : <input type="password" name="password">
+                                    <span id="passwordErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Confirm Password</b></td>
+                                <td>
+                                    : <input type="password" name="confirm">
+                                    <span id="confirmErr" style="color:red"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <br>
+                    <input type="submit" value="Register">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+    function validate(x) {
+        let flag = true;
+
+        document.querySelectorAll("span").forEach(function(s) {
+            s.innerHTML = "";
+        });
+
+        const fname = x.fname.value;
+        let fnameErr = document.getElementById("fnameErr");
+        if (fname === "") {
+            fnameErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const lname = x.lname.value;
+        let lnameErr = document.getElementById("lnameErr");
+        if (lname === "") {
+            lnameErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const gender = x.gender.value;
+        let genderErr = document.getElementById("genderErr");
+        if (gender === "") {
+            genderErr.innerHTML = " Select Gender";
+            flag = false;
+        }
+
+        const father = x.father.value;
+        let fatherErr = document.getElementById("fatherErr");
+        if (father === "") {
+            fatherErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const mother = x.mother.value;
+        let motherErr = document.getElementById("motherErr");
+        if (mother === "") {
+            motherErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const blood = x.blood.value;
+        let bloodErr = document.getElementById("bloodErr");
+        if (blood === "") {
+            bloodErr.innerHTML = " Select Blood Group";
+            flag = false;
+        }
+
+        const religion = x.religion.value;
+        let religionErr = document.getElementById("religionErr");
+        if (religion === "") {
+            religionErr.innerHTML = " Select Religion";
+            flag = false;
+        }
+
+        const email = x.email.value;
+        let emailErr = document.getElementById("emailErr");
+        if (email === "") {
+            emailErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const phone = x.phone.value;
+        let phoneErr = document.getElementById("phoneErr");
+        if (phone === "") {
+            phoneErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const website = x.website.value;
+        let websiteErr = document.getElementById("websiteErr");
+        if (website === "") {
+            websiteErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const country = x.country.value;
+        const division = x.division.value;
+        const address = x.address.value;
+        const postcode = x.postcode.value;
+        let addressErr = document.getElementById("addressErr");
+
+        if (country === "") {
+            addressErr.innerHTML = " Select Country";
+            flag = false;
+        }
+        if (division === "") {
+            addressErr.innerHTML = " Select Division";
+            flag = false;
+        }
+        if (address === "") {
+            addressErr.innerHTML = " Address Required";
+            flag = false;
+        }
+        if (postcode === "") {
+            addressErr.innerHTML = " Post Code Required";
+            flag = false;
+        }
+
+
+        const username = x.username.value;
+        let usernameErr = document.getElementById("usernameErr");
+        if (username === "") {
+            usernameErr.innerHTML = " Required";
+            flag = false;
+        }
+
+        const password = x.password.value;
+        let passwordErr = document.getElementById("passwordErr");
+
+        if (password === "") {
+            passwordErr.innerHTML = " Required";
+            flag = false;
+        } else {
+            if (password.length < 8) {
+                passwordErr.innerHTML = " Minimum 8 characters";
+                flag = false;
+            } else if (!password.match(/[A-Z]/)) {
+                passwordErr.innerHTML = " Must contain uppercase";
+                flag = false;
+            } else if (!password.match(/[a-z]/)) {
+                passwordErr.innerHTML = " Must contain lowercase";
+                flag = false;
+            } else if (!password.match(/[0-9]/)) {
+                passwordErr.innerHTML = " Must contain number";
+                flag = false;
+            } else if (!password.match(/[!@#$%^&*(),.?":{}|<>]/)) {
+                passwordErr.innerHTML = " Must contain special character";
+                flag = false;
+            }
+        }
+
+        const confirm = x.confirm.value;
+        let confirmErr = document.getElementById("confirmErr");
+
+        if (confirm === "") {
+            confirmErr.innerHTML = "Required";
+            flag = false;
+        } else if (password !== confirm) {
+            confirmErr.innerHTML = "Password does not match";
+            flag = false;
+        }
+
+        return flag;
+    }
+    </script>
+
+</body>
+</html>
