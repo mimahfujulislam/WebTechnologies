@@ -1,1 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <form onsubmit="return validate(this);">
+        <h1>Registration</h1>
+        <table cellspacing="5">
+            <tr>
+
+                <td>
+                    <fieldset>
+                        <legend><b>General Information:</b></legend>
+                        <table cellpadding="8">
+                            <tr>
+                                <td><b>First <br>Name</b></td>
+                                <td>
+                                    : <input type="text" name="fname">
+                                    <span id="fnameErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Last <br>Name</b></td>
+                                <td>
+                                    : <input type="text" name="lname">
+                                    <span id="lnameErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Gender</b></td>
+                                <td>
+                                    :
+                                    <input type="radio" name="gender" value="Male">Male
+                                    <input type="radio" name="gender" value="Female">Female
+                                    <span id="genderErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Father's<br>Name</b></td>
+                                <td>
+                                    :
+                                    <input type="text" name="father">
+                                    <input type="file" name="photo">
+                                    <br>
+                                    <span id="fatherErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Mother's <br>Name</b></td>
+                                <td>
+                                    : <input type="text" name="mother">
+                                    <span id="motherErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Blood <br>Group</b></td>
+                                <td>
+                                    :
+                                    <select name="blood">
+                                        <option value="">Select</option>
+                                        <option>A+</option>
+                                        <option>A-</option>
+                                        <option>B+</option>
+                                        <option>B-</option>
+                                        <option>AB+</option>
+                                        <option>AB-</option>
+                                        <option>O+</option>
+                                        <option>O-</option>
+                                    </select>
+                                    <span id="bloodErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Religion</b></td>
+                                <td>
+                                    :
+                                    <select name="religion">
+                                        <option value="">Select</option>
+                                        <option>Islam</option>
+                                        <option>Hinduism</option>
+                                        <option>Christianity</option>
+                                        <option>Buddhism</option>
+                                    </select>
+                                    <span id="religionErr" class="error"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+
+
+                <td>
+                    <fieldset>
+                        <legend><b>Contact Information:</b></legend>
+                        <table cellpadding="8">
+                            <tr>
+                                <td><b>Email</b></td>
+                                <td>
+                                    : <input type="email" name="email">
+                                    <span id="emailErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone/Mobile</b></td>
+                                <td>
+                                    : <input type="text" name="phone">
+                                    <span id="phoneErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Website</b></td>
+                                <td>
+                                    : <input type="text" name="website">
+                                    <span id="websiteErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Address</b></td>
+                                <td>
+                                    <fieldset>
+                                        <legend>Present Address</legend>
+                                        <select name="country">
+                                            <option value="">Country</option>
+                                            <option>Bangladesh</option>
+                                            <option>Bhutan</option>
+                                            <option>Nepal</option>
+                                        </select>
+
+                                        <select name="division">
+                                            <option value="">Division</option>
+                                            <option>Dhaka</option>
+                                            <option>Sylhet</option>
+                                            <option>Rangpur</option>
+                                            <option>Khulna</option>
+                                        </select>
+                                        <br><br>
+                                        <textarea rows="5" cols="22" placeholder="Road/Street/City" name="address"></textarea>
+                                        <br><br>
+                                        <input type="text" placeholder="Post Code" name="postcode">
+                                        <br>
+                                        <span id="addressErr" class="error"></span>
+                                    </fieldset>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+
+
+                <td>
+                    <fieldset>
+                        <legend><b>Account Information</b></legend>
+                        <table cellpadding="12">
+                            <tr>
+                                <td><b>Username</b></td>
+                                <td>
+                                    : <input type="text" name="username">
+                                    <span id="usernameErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Password</b></td>
+                                <td>
+                                    : <input type="password" name="password">
+                                    <span id="passwordErr" class="error"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Confirm Password</b></td>
+                                <td>
+                                    : <input type="password" name="confirm">
+                                    <span id="confirmErr" class="error"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <br>
+                    <input type="submit" value="Register">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
